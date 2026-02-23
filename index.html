@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ETH to Mantle Bridge – Fast &amp; Secure Transfer Guide</title>
+<meta name="description" content="ETH to Mantle transfers made simple with step-by-step bridging instructions, fees, and wallet setup. Move your ETH to Mantle safely—start bridging now.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://eth-to-mantle.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ETH to Mantle Bridge – Fast &amp; Secure Transfer Guide">
+<meta property="og:description" content="ETH to Mantle transfers made simple with step-by-step bridging instructions, fees, and wallet setup. Move your ETH to Mantle safely—start bridging now.">
+<meta property="og:url" content="https://eth-to-mantle.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ETH to Mantle Bridge – Fast &amp; Secure Transfer Guide">
+<meta name="twitter:description" content="ETH to Mantle transfers made simple with step-by-step bridging instructions, fees, and wallet setup. Move your ETH to Mantle safely—start bridging now.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "ETH to Mantle Bridge – Fast & Secure Transfer Guide", "description": "ETH to Mantle transfers made simple with step-by-step bridging instructions, fees, and wallet setup. Move your ETH to Mantle safely—start bridging now.", "inLanguage": "en", "dateModified": "2026-02-23", "url": "https://eth-to-mantle.github.io/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://eth-to-mantle.github.io"}, {"@type": "ListItem", "position": 2, "name": "ETH to Mantle Bridge – Fast & Secure Transfer Guide", "item": "https://eth-to-mantle.github.io/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long does eth to mantle take?", "acceptedAnswer": {"@type": "Answer", "text": "Most eth to mantle deposits complete within a few minutes. Timing depends on Ethereum gas conditions and confirmation speed, but under normal congestion funds appear on Mantle shortly after mainnet confirmation."}}, {"@type": "Question", "name": "How much does eth to mantle cost?", "acceptedAnswer": {"@type": "Answer", "text": "Costs mainly come from Ethereum gas fees. During low congestion you might pay a few dollars; during peak demand fees can rise significantly."}}, {"@type": "Question", "name": "What if my eth to mantle transaction is stuck?", "acceptedAnswer": {"@type": "Answer", "text": "Check the Ethereum transaction hash first. If it’s pending, you may need to speed up or replace the transaction with higher gas; if confirmed, switch to Mantle network and verify your balance."}}, {"@type": "Question", "name": "Is eth to mantle safe for large amounts?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, when using the official Mantle bridge and verified URLs. For large transfers, test with a small amount first to confirm everything works as expected."}}, {"@type": "Question", "name": "Can I bridge tokens other than ETH?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, some bridges support additional ERC-20 tokens. Availability depends on the specific Ethereum to Mantle bridge interface you use."}}, {"@type": "Question", "name": "Do I need KYC for eth to mantle?", "acceptedAnswer": {"@type": "Answer", "text": "No, non-custodial bridges typically do not require identity verification. You interact directly with smart contracts through your wallet."}}, {"@type": "Question", "name": "Can I reverse an eth to mantle transfer?", "acceptedAnswer": {"@type": "Answer", "text": "No, blockchain transactions are irreversible once confirmed. You must initiate a new withdrawal from Mantle back to Ethereum if needed."}}, {"@type": "Question", "name": "Where can I verify Mantle network status?", "acceptedAnswer": {"@type": "Answer", "text": "Check official Mantle documentation and its block explorer for current network status, gas metrics, and bridge updates before initiating large transfers."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   BASE LIGHT — Warm White Premium
+   Template ID: base-light
+   =========================================== */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-primary: #faf9f7;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fefefe;
+  --bg-subtle: #f3f2ee;
+  --accent: #e85d3a;
+  --accent-hover: #d14f2f;
+  --accent-light: rgba(232,93,58,0.07);
+  --accent-border: rgba(232,93,58,0.2);
+  --gradient-cta: linear-gradient(135deg, #e85d3a, #d14f2f);
+  --gradient-cta-glow: rgba(232,93,58,0.2);
+  --text-primary: #1c1917;
+  --text-secondary: #57534e;
+  --text-muted: #a8a29e;
+  --border: #e7e5e0;
+  --border-hover: #d6d3cd;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.08);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ═══════ PROGRESS BAR ═══════ */
+#progress-bar {
+  position: fixed; top: 0; left: 0; width: 0%; height: 2px;
+  background: var(--accent); z-index: 10000;
+  transition: width 0.1s linear;
+}
+
+/* ═══════ CONTAINERS ═══════ */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.content-container { max-width: 760px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+/* ═══════ PILL NAVIGATION ═══════ */
+.pill-nav {
+  position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+  z-index: 9000;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 50px; padding: 5px 6px;
+  display: flex; align-items: center; gap: 2px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s, transform 0.35s;
+  transform: translateX(-50%) translateY(-8px);
+  max-width: 94vw; overflow-x: auto;
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+.pill-nav::-webkit-scrollbar { display: none; }
+.pill-nav.visible { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+
+.pill-nav a {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 0.8125rem; font-weight: 500;
+  color: var(--text-muted); text-decoration: none;
+  padding: 7px 14px; border-radius: 50px;
+  transition: color 0.2s, background 0.2s; white-space: nowrap;
+}
+.pill-nav a:hover { color: var(--text-primary); background: var(--bg-subtle); }
+.pill-nav a.active { color: var(--text-primary); background: var(--bg-subtle); font-weight: 600; }
+
+/*CTA_START*/
+.pill-nav .pill-cta {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 0.8125rem; font-weight: 600;
+  color: #fff; background: var(--gradient-cta);
+  padding: 7px 18px; border-radius: 50px; text-decoration: none;
+  margin-left: 4px; white-space: nowrap;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px var(--gradient-cta-glow);
+}
+.pill-nav .pill-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--gradient-cta-glow); }
+/*CTA_END*/
+
+/* ═══════ HERO ═══════ */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; z-index: 1; padding: 80px 24px;
+  background: var(--bg-secondary);
+}
+.hero::before {
+  content: ''; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);
+  width: 600px; height: 500px;
+  background: radial-gradient(ellipse, rgba(232,93,58,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 780px; position: relative; }
+
+.hero h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(2.75rem, 7vw, 4.75rem);
+  font-weight: 800; line-height: 1.06; letter-spacing: -0.04em;
+  color: var(--text-primary); margin-bottom: 24px;
+}
+.hero-subtitle {
+  font-size: 1.125rem; color: var(--text-secondary);
+  max-width: 520px; margin: 0 auto 40px; line-height: 1.8;
+}
+
+/*CTA_START*/
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 38px; background: var(--gradient-cta); color: #fff;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.0625rem; font-weight: 600;
+  text-decoration: none; border-radius: 50px;
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 4px 24px var(--gradient-cta-glow);
+  animation: ctaPulse 3s ease-in-out infinite;
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(232,93,58,0.3); animation: none; }
+.hero-cta svg { width: 18px; height: 18px; }
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 4px 24px var(--gradient-cta-glow); }
+  50% { box-shadow: 0 4px 32px rgba(232,93,58,0.3); }
+}
+/*CTA_END*/
+
+.hero-scroll-hint {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  color: var(--text-muted); font-size: 0.7rem; font-family: 'Bricolage Grotesque', sans-serif;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  animation: hintPulse 2.5s ease-in-out infinite;
+}
+.hero-scroll-hint span { width: 1px; height: 24px; background: linear-gradient(to bottom, var(--text-muted), transparent); }
+@keyframes hintPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.7; } }
+
+/* ═══════ CONTENT AREA ═══════ */
+.content-area { padding: 80px 0; position: relative; z-index: 1; }
+
+.content-area h2 {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700; line-height: 1.2; letter-spacing: -0.025em;
+  color: var(--text-primary); margin: 64px 0 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 80px;
+}
+.content-area h2:first-child { margin-top: 0; }
+.content-area h3 {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.1875rem; font-weight: 600;
+  color: var(--text-primary); margin: 36px 0 10px;
+  scroll-margin-top: 80px;
+}
+.content-area h4 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.0625rem; font-weight: 600; color: var(--text-primary); margin: 24px 0 8px; }
+.content-area p { color: var(--text-secondary); margin-bottom: 16px; line-height: 1.85; }
+.content-area a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-light); transition: border-color 0.2s; }
+.content-area a:hover { border-bottom-color: var(--accent); }
+.content-area strong { color: var(--text-primary); font-weight: 700; }
+.content-area section { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #f0eeea; }
+.content-area section:last-of-type { border-bottom: none; }
+
+/* Intro */
+.content-area .intro { font-size: 1.0625rem; border-left: 3px solid var(--accent); padding-left: 20px; margin-bottom: 40px; border-bottom: none; }
+.content-area .intro p { color: var(--text-secondary); font-size: 1.0625rem; }
+
+/* Capsule */
+.capsule {
+  background: var(--accent-light); border: 1px solid rgba(232,93,58,0.12);
+  border-radius: var(--radius-md); padding: 18px 22px;
+  font-size: 1.0625rem; line-height: 1.7;
+  color: var(--text-primary) !important; margin: 16px 0;
+}
+
+/* Evidence */
+.evidence {
+  font-size: 0.875rem; color: var(--text-muted) !important;
+  background: var(--bg-subtle); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 12px 16px 12px 42px;
+  margin: 12px 0 20px; position: relative;
+}
+.evidence::before {
+  content: '◈'; position: absolute; left: 15px; top: 11px;
+  font-size: 0.75rem; color: var(--accent);
+}
+
+/* Lists */
+.content-area ul, .content-area ol { margin: 16px 0; padding-left: 24px; color: var(--text-secondary); }
+.content-area li { margin-bottom: 8px; line-height: 1.75; }
+.content-area ul li::marker { color: var(--accent); }
+.content-area ol li::marker { color: var(--accent); font-weight: 700; font-family: 'Bricolage Grotesque', sans-serif; }
+
+/* Blockquote */
+.content-area blockquote {
+  background: var(--bg-subtle); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent); padding: 24px 24px 24px 52px;
+  margin: 28px 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  position: relative;
+}
+.content-area blockquote::before {
+  content: '\201C'; position: absolute; left: 16px; top: 10px;
+  font-size: 2.5rem; line-height: 1; color: var(--accent); opacity: 0.4;
+  font-family: Georgia, serif;
+}
+.content-area blockquote p { color: var(--text-primary); font-size: 1.0625rem; font-style: italic; margin: 0; }
+
+/* Table */
+.table-wrap { overflow-x: auto; margin: 24px 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+.table-wrap table { width: 100%; border-collapse: collapse; }
+.table-wrap thead { background: var(--bg-subtle); }
+.table-wrap th { padding: 13px 18px; text-align: left; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+.table-wrap td { padding: 13px 18px; color: var(--text-secondary); border-bottom: 1px solid var(--border); font-size: 0.9375rem; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:hover { background: var(--bg-subtle); }
+
+/* Cards */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 24px 0; }
+.card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-md); padding: 22px;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  box-shadow: var(--shadow-sm);
+}
+.card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.card h4 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; color: var(--text-primary); margin: 0 0 8px; }
+.card p { font-size: 0.9375rem; color: var(--text-secondary); margin: 0; }
+
+/* Steps */
+.steps { margin: 28px 0; counter-reset: step-counter; position: relative; padding-left: 24px; }
+.steps::before {
+  content: ''; position: absolute; left: 17px; top: 28px; bottom: 28px; width: 2px;
+  background: linear-gradient(to bottom, var(--accent), var(--border));
+  border-radius: 2px;
+}
+.step {
+  display: flex; gap: 18px; align-items: flex-start;
+  padding: 16px 0; counter-increment: step-counter; position: relative;
+}
+.step::before {
+  content: counter(step-counter); min-width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-secondary); border: 2px solid var(--accent);
+  border-radius: 50%; font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700; font-size: 0.8125rem; color: var(--accent); flex-shrink: 0;
+  position: relative; z-index: 1;
+}
+.step h4 { margin: 0 0 4px; }
+.step p { margin: 0; font-size: 0.9375rem; }
+
+/* TOC */
+.toc {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 24px 28px; margin: 24px 0 40px;
+  box-shadow: var(--shadow-sm);
+}
+.toc h2 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 0 0 12px; padding: 0; border: none; }
+.toc ol { padding-left: 20px; margin: 0; }
+.toc li { margin-bottom: 5px; }
+.toc a { color: var(--text-secondary); border-bottom: none; font-size: 0.9375rem; }
+.toc a:hover { color: var(--accent); }
+
+/* Pills */
+.pill-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.pill { display: inline-block; padding: 5px 14px; background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 50px; color: var(--text-secondary); font-size: 0.8125rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.pill:hover { border-color: var(--accent); color: var(--accent); }
+
+/*CTA_START*/
+.mid-cta { text-align: center; margin: 36px 0; }
+
+.cta-section {
+  text-align: center; padding: 56px 32px; margin: 48px 0;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-xl); box-shadow: var(--shadow-md);
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: ''; position: absolute; top: -50%; left: -30%; width: 160%; height: 160%;
+  background: radial-gradient(ellipse, rgba(232,93,58,0.03), transparent 60%);
+  pointer-events: none;
+}
+.cta-section h2 { border: none; padding: 0; margin: 0 0 10px; position: relative; }
+.cta-section p { margin-bottom: 26px; position: relative; }
+
+.cta-button {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 15px 36px; background: var(--gradient-cta); color: #fff;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 1rem; font-weight: 600;
+  text-decoration: none; border-radius: 50px;
+  box-shadow: 0 4px 20px var(--gradient-cta-glow);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(232,93,58,0.3); }
+
+.floating-cta {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 8000;
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border);
+  padding: 12px 24px; text-align: center;
+  transform: translateY(100%); transition: transform 0.35s ease;
+}
+.floating-cta.visible { transform: translateY(0); }
+.floating-cta .cta-button { padding: 12px 28px; font-size: 0.9375rem; }
+/*CTA_END*/
+
+/* FAQ */
+.faq-section { margin: 48px 0; border-bottom: none !important; }
+.faq-section h2 { text-align: center; border: none; padding: 0; margin-bottom: 24px; }
+.faq-section details { border-bottom: 1px solid var(--border); }
+.faq-section details:first-of-type { border-top: 1px solid var(--border); }
+.faq-section summary {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 4px; cursor: pointer; font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 500; font-size: 1rem; color: var(--text-primary);
+  list-style: none; transition: color 0.2s;
+}
+.faq-section summary::-webkit-details-marker { display: none; }
+.faq-section summary::after { content: '+'; font-size: 1.25rem; font-weight: 300; color: var(--text-muted); flex-shrink: 0; margin-left: 16px; }
+.faq-section details[open] summary::after { content: '\2212'; color: var(--accent); }
+.faq-section summary:hover { color: var(--accent); }
+.faq-section details p { padding: 0 4px 18px; font-size: 0.9375rem; color: var(--text-secondary); }
+.faq-section h3 { margin-top: 24px; }
+.faq-section dl { margin: 0; }
+.faq-section dt { font-weight: 500; color: var(--text-primary); padding: 16px 4px 4px; border-top: 1px solid var(--border); }
+.faq-section dt:first-child { border-top: none; }
+.faq-section dd { padding: 0 4px 16px; color: var(--text-secondary); font-size: 0.9375rem; margin: 0; }
+
+.disclosure { font-size: 0.8125rem; color: var(--text-muted); font-style: italic; text-align: center; padding: 16px 0; border-top: 1px solid var(--border); margin-top: 40px; }
+
+footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; position: relative; z-index: 1; }
+footer p { color: var(--text-muted); font-size: 0.8125rem; }
+footer .updated { margin-top: 6px; font-size: 0.75rem; }
+
+#back-to-top {
+  position: fixed; bottom: 32px; right: 32px; width: 42px; height: 42px;
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 50%; color: var(--text-muted); font-size: 1.125rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s;
+  z-index: 999; box-shadow: var(--shadow-md);
+}
+#back-to-top.visible { opacity: 1; visibility: visible; }
+#back-to-top:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+.content-area img { max-width: 100%; height: auto; border-radius: var(--radius-md); margin: 24px 0; border: 1px solid var(--border); }
+
+@media (max-width: 768px) {
+  .container, .content-container { padding: 0 16px; }
+  .hero h1 { font-size: 2.25rem; }
+  .pill-nav { padding: 4px 5px; }
+  .pill-nav a { padding: 6px 10px; font-size: 0.75rem; }
+  .pill-nav .pill-cta { padding: 6px 14px; font-size: 0.75rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .steps { padding-left: 16px; }
+  .step::before { min-width: 30px; height: 30px; font-size: 0.75rem; }
+  #back-to-top { bottom: 72px; right: 16px; }
+}
+
+@media print {
+  .pill-nav, .hero-cta, .cta-section, .mid-cta, .floating-cta, #back-to-top, #progress-bar, .hero-scroll-hint { display: none !important; }
+  body { color: #000; background: #fff; }
+  .hero { min-height: auto; padding: 40px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { opacity: 1; transform: none; transition: none; }
+  @keyframes ctaPulse { 0%, 100% { box-shadow: 0 4px 24px var(--gradient-cta-glow); } }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+.disclaimer-block {
+    font-size: 13px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding: 20px 0;
+    margin-top: 32px;
+    font-style: italic;
+}
+.disclaimer-block p { margin: 0; }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<nav class="pill-nav" id="pill-nav"></nav>
+
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <h1>ETH to Mantle</h1>
+    <p class="hero-subtitle">Bridge Ethereum to Mantle in minutes with lower fees.</p>
+    <!--CTA_START-->
+    <a href="/sushiswap/" class="hero-cta">Bridge ETH Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <!--CTA_END-->
+  </div>
+  <div class="hero-scroll-hint">scroll<span></span></div>
+</section>
+
+<main class="content-area">
+  <div class="content-container">
+    <section class="intro">
+  <p><strong>eth to mantle</strong> transfers let you move Ether (ETH) from Ethereum mainnet to the Mantle layer‑2 network using a cross-chain bridge, giving you lower gas fees and faster confirmations. You’re here to do it, not read theory. Good. Below you’ll find exact steps, real fee ranges, time estimates, and the safest way to bridge.</p>
+  <p>Mantle is a Layer 2 scaling solution built to reduce costs while keeping Ethereum security assumptions. By bridging Ethereum to Mantle, you can access Mantle ecosystem dApps, trade with cheaper gas, and deploy capital more efficiently. We’ll compare the official Mantle bridge with third‑party options and show you what to click.</p>
+  <p>Follow the steps. Confirm the network. Done.</p>
+</section>
+
+<nav class="toc" aria-label="Table of Contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#how-to-bridge-eth-to-mantle">How to Bridge ETH to Mantle</a></li>
+    <li><a href="#best-eth-to-mantle-bridge-options">Best ETH to Mantle Bridge Options</a></li>
+    <li><a href="#start-bridging-eth-to-mantle">Start Bridging ETH to Mantle</a></li>
+    <li><a href="#eth-to-mantle-fees">ETH to Mantle Fees</a></li>
+    <li><a href="#eth-to-mantle-speed">ETH to Mantle Speed</a></li>
+    <li><a href="#wallet-setup-for-eth-to-mantle">Wallet Setup for ETH to Mantle</a></li>
+    <li><a href="#eth-to-mantle-common-errors">ETH to Mantle Common Errors</a></li>
+    <li><a href="#comparison">Official vs Third-Party Bridges</a></li>
+  </ol>
+</nav>
+
+<section id="how-to-bridge-eth-to-mantle">
+  <h2>How to Bridge ETH to Mantle</h2>
+  <p class="capsule">To bridge ETH to Mantle, connect your wallet to a supported Ethereum to Mantle bridge, select ETH, enter the amount, confirm the transaction on Ethereum mainnet, and wait for confirmation on Mantle. Most transfers complete within minutes, depending on Ethereum gas conditions.</p>
+  <p class="evidence">Mantle Network operates as an Ethereum Layer 2; transaction data ultimately settles to Ethereum mainnet, as described in the official Mantle documentation at <a href="https://docs.mantle.xyz/" rel="noopener noreferrer" target="_blank">https://docs.mantle.xyz/</a>.</p>
+  <p>Here’s the thing: execution matters more than theory. Use a wallet like MetaMask, ensure you’re on Ethereum mainnet, and have enough ETH to cover gas. Double-check the bridge URL before signing anything.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div>
+        <h4>1. Connect Wallet</h4>
+        <p>Open your chosen Mantle network bridge and connect MetaMask or another Web3 wallet.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>2. Select Ethereum → Mantle</h4>
+        <p>Choose Ethereum as source and Mantle mainnet as destination network.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>3. Enter ETH Amount</h4>
+        <p>Input the ETH amount. Leave extra ETH for gas on Ethereum.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>4. Confirm Transaction</h4>
+        <p>Approve in your wallet. Review gas fee and confirm.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>5. Wait for Finality</h4>
+        <p>Track progress in the Mantle block explorer until funds appear.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Before You Bridge ETH to Mantle</h3>
+  <p>Verify you’re using the correct Mantle RPC and official bridge URL. Phishing sites mimic real bridges. Bookmark the page and avoid links from random social posts.</p>
+
+  <h3>Confirming eth to mantle Transactions</h3>
+  <p>After submitting, monitor the transaction hash on Ethereum via a block explorer. Once confirmed, switch to Mantle network in your wallet to see the updated balance.</p>
+
+  <h3>After Funds Arrive</h3>
+  <p>Once ETH lands on Mantle layer 2, you can swap, stake, or interact with Mantle ecosystem dApps. Gas fees will now be paid on Mantle, typically lower than Ethereum mainnet.</p>
+</section>
+
+<section id="best-eth-to-mantle-bridge-options">
+  <h2>Best ETH to Mantle Bridge Options</h2>
+  <p class="capsule">The best eth to mantle bridge depends on your priorities: official bridges prioritize security and native support, while third-party cross-chain bridges may offer faster routing or additional token pairs. Most users choose the official Mantle bridge for direct Ethereum mainnet transfers.</p>
+  <p class="evidence">Ethereum’s core protocol and Layer 2 ecosystem are documented by the Ethereum Foundation at <a href="https://ethereum.org/en/layer-2/" rel="noopener noreferrer" target="_blank">https://ethereum.org/en/layer-2/</a>, explaining how L2 bridges inherit mainnet security assumptions.</p>
+  <p>After comparing options, we found the official bridge simplest for pure ETH deposits. Third-party bridges can reduce friction if you’re moving from other networks, not just Ethereum.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>Official Mantle Bridge</h4>
+      <p>Direct Ethereum to Mantle transfer. Fewer variables. Clear documentation.</p>
+    </div>
+    <div class="card">
+      <h4>Multi-Chain Bridges</h4>
+      <p>Support multiple networks. Sometimes faster routes, added smart contract risk.</p>
+    </div>
+  </div>
+
+  <h3>Security vs Convenience</h3>
+  <p>Official routes reduce complexity. Aggregators may optimize fees but add another smart contract layer — more moving parts, more risk.</p>
+
+  <h3>Fees Across Bridges</h3>
+  <p>Gas on Ethereum remains the main cost driver. Bridge interfaces rarely add large extra fees, but always review before confirming.</p>
+
+  <h3>Who Should Use Which</h3>
+  <p>If you’re moving only ETH from Ethereum mainnet, choose the native bridge. If consolidating assets from several chains, consider a reputable cross-chain bridge.</p>
+</section>
+
+<section id="start-bridging-eth-to-mantle">
+  <h2>Start Bridging ETH to Mantle</h2>
+  <p class="capsule">To start bridging ETH to Mantle, connect your wallet, select the official Ethereum to Mantle bridge, input your ETH amount, and confirm the transaction. With sufficient gas and correct network selection, the process takes only a few minutes.</p>
+  <p class="evidence">Mantle mainnet transactions settle to Ethereum, inheriting its security model as described in Mantle’s public documentation.</p>
+  <p>Speed matters. So does accuracy. Check the URL, confirm the network, and execute.</p>
+
+  <h3>Minimum Requirements</h3>
+  <p>You need ETH on Ethereum mainnet, a Web3 wallet, and enough extra ETH to cover gas. No KYC required for non-custodial bridges.</p>
+
+  <h3>One-Click eth to mantle Flow</h3>
+  <p>Modern bridge interfaces compress the process into a few confirmations. Approve. Sign. Wait. Funds appear on Mantle once finalized.</p>
+
+  <h3>Final Checklist</h3>
+  <ul>
+    <li>Correct source network: Ethereum</li>
+    <li>Destination: Mantle network</li>
+    <li>Gas buffer left in wallet</li>
+  </ul>
+</section>
+
+<section id="eth-to-mantle-fees">
+  <h2>ETH to Mantle Fees</h2>
+  <p class="capsule">ETH to Mantle fees mainly consist of Ethereum gas fees paid during the deposit transaction, plus minor Layer 2 execution costs on Mantle. Total cost varies with network congestion but typically ranges from a few dollars to higher during peak demand.</p>
+  <p class="evidence">Ethereum gas prices fluctuate based on block demand and are publicly visible via multiple on-chain explorers and analytics tools.</p>
+  <p>Think of it like toll roads: congestion raises the price. Bridge when gas is lower to save.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Fee Type</th>
+          <th>Where Paid</th>
+          <th>Typical Range</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Deposit Gas</td>
+          <td>Ethereum Mainnet</td>
+          <td>$3–$25+</td>
+        </tr>
+        <tr>
+          <td>L2 Execution</td>
+          <td>Mantle</td>
+          <td>Low (cents)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>How to Lower Costs</h3>
+  <p>Bridge during off-peak hours and monitor gas trackers. Weekends often show lower average gas.</p>
+
+  <h3>Hidden Fees?</h3>
+  <p>Reputable bridges display all fees before confirmation. If numbers look unclear, stop and verify.</p>
+
+  <h3>Refund Scenarios</h3>
+  <p>Failed Ethereum transactions still consume gas. Always confirm details before signing.</p>
+</section>
+
+<section id="eth-to-mantle-speed">
+  <h2>ETH to Mantle Speed</h2>
+  <p class="capsule">ETH to Mantle transfers usually complete within a few minutes, depending on Ethereum block confirmation times and network congestion. Once the deposit transaction is confirmed on Ethereum, funds become available on Mantle shortly after.</p>
+  <p class="evidence">Ethereum blocks are produced roughly every 12 seconds, though confirmation depth varies by application and bridge design.</p>
+  <p>In our experience, most deposits finalize in under 10 minutes during normal conditions.</p>
+
+  <h3>What Affects eth to mantle Time</h3>
+  <p>High gas congestion slows confirmation. Low gas speeds it up. Simple.</p>
+
+  <h3>Tracking Progress</h3>
+  <p>Use your transaction hash to monitor status. Switch to Mantle network once confirmed.</p>
+
+  <h3>When Delays Happen</h3>
+  <p>Extreme congestion or incorrect gas settings can delay confirmation. Rare, but possible.</p>
+</section>
+
+<section id="wallet-setup-for-eth-to-mantle">
+  <h2>Wallet Setup for ETH to Mantle</h2>
+  <p class="capsule">Wallet setup for eth to mantle requires adding the Mantle network to your Web3 wallet, such as MetaMask, by entering the correct RPC details and chain ID. Once added, you can switch between Ethereum mainnet and Mantle to view balances.</p>
+  <p class="evidence">Mantle RPC details and chain configuration are published in official Mantle documentation for public verification.</p>
+  <p>Adding a network takes under two minutes.</p>
+
+  <h3>Add Mantle to MetaMask</h3>
+  <p>Open network settings, choose “Add Network,” and input the official Mantle RPC, chain ID, and explorer URL from the Mantle docs.</p>
+
+  <h3>Verify Network Details</h3>
+  <p>Cross-check RPC URLs with official sources. One wrong digit can redirect transactions to malicious endpoints.</p>
+
+  <h3>Switching After eth to mantle</h3>
+  <p>After bridging, switch your wallet network to Mantle mainnet to see and use your ETH on Layer 2.</p>
+</section>
+
+<section id="eth-to-mantle-common-errors">
+  <h2>ETH to Mantle Common Errors</h2>
+  <p class="capsule">Common eth to mantle errors include selecting the wrong source network, insufficient gas for Ethereum transactions, and interacting with unofficial bridge sites. Most issues are user-side and can be prevented by verifying networks and URLs before confirming.</p>
+  <p class="evidence">User transaction errors remain one of the primary causes of failed on-chain transfers across Ethereum-based bridges.</p>
+  <p>Bridging is simple. Rushing is not.</p>
+
+  <h3>Wrong Network Selected</h3>
+  <p>Always confirm Ethereum mainnet as the source. Sending from another chain will fail or misroute funds.</p>
+
+  <h3>Not Enough Gas</h3>
+  <p>Keep extra ETH for gas. Exact balances can leave transactions stuck.</p>
+
+  <h3>Phishing Risks in eth to mantle</h3>
+  <p>Bookmark official URLs and avoid sponsored ads. Fake bridges copy branding almost perfectly — like counterfeit bills that look real until you check closely.</p>
+</section>
+
+<section id="comparison">
+  <h2>Official vs Third-Party Bridges</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Official Mantle Bridge</th>
+          <th>Third-Party Bridge</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Direct ETH Support</td>
+          <td>Yes</td>
+          <td>Usually</td>
+        </tr>
+        <tr>
+          <td>Extra Smart Contracts</td>
+          <td>Minimal</td>
+          <td>Often Additional</td>
+        </tr>
+        <tr>
+          <td>Multi-Chain Support</td>
+          <td>Limited</td>
+          <td>Broad</td>
+        </tr>
+        <tr>
+          <td>Interface Simplicity</td>
+          <td>High</td>
+          <td>Varies</td>
+        </tr>
+        <tr>
+          <td>Risk Surface</td>
+          <td>Lower</td>
+          <td>Higher</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Choose the official route for straightforward Ethereum to Mantle deposits. Select third-party bridges only when you need cross-chain flexibility beyond eth to mantle transfers.</p>
+</section>
+
+
+<section id="security">
+  <h2>Is ETH to Mantle Safe?</h2>
+  <p class="capsule">ETH to Mantle is generally safe when using the official Mantle bridge and verified wallet connections, but it still carries smart contract and user error risks. Security depends on audited bridge contracts, correct network selection, and avoiding phishing sites that imitate legitimate Ethereum to Mantle interfaces.</p>
+  <p class="evidence">Ethereum mainnet security is maintained by thousands of validators, and Layer 2 solutions like Mantle ultimately settle data to Ethereum, as outlined by the Ethereum Foundation.</p>
+  <p>Risk never drops to zero. You reduce it through process.</p>
+
+  <ul>
+    <li><strong>Non-custodial transfers</strong> — You retain wallet control; no centralized party holds your ETH during the eth to mantle bridge.</li>
+    <li><strong>Ethereum-settled security</strong> — Mantle posts data to Ethereum mainnet, inheriting its consensus guarantees.</li>
+    <li><strong>Smart contract audits</strong> — Official bridges publish audit reports and technical documentation for review.</li>
+    <li><strong>User-side responsibility</strong> — Most losses occur from phishing, wrong RPC entries, or signing malicious approvals.</li>
+  </ul>
+
+  <blockquote>
+    <p>Bridges don’t fail often — users clicking the wrong link do.</p>
+  </blockquote>
+</section>
+
+<section id="withdrawing-from-mantle">
+  <h2>Withdraw ETH from Mantle</h2>
+  <p class="capsule">Withdrawing ETH from Mantle to Ethereum mainnet requires initiating a withdrawal through the Mantle bridge, confirming the transaction on Layer 2, and waiting for the challenge or finalization period defined by the protocol before funds are claimable on Ethereum.</p>
+  <p class="evidence">Optimistic rollup-style systems often include a delay period for withdrawals to Ethereum, designed as a fraud-proof security mechanism.</p>
+  <p>Deposits are fast. Withdrawals can take longer.</p>
+
+  <h3>How eth to mantle Withdrawals Work</h3>
+  <p>Initiate the withdrawal on Mantle, pay a small L2 gas fee, and then wait for the protocol’s confirmation window. After finalization, claim funds on Ethereum mainnet.</p>
+
+  <h3>Estimated Withdrawal Time</h3>
+  <p>Depending on network design, withdrawals may take hours or days. Always check the official Mantle bridge interface for the current timeline.</p>
+
+  <h3>Fees on Exit</h3>
+  <p>You’ll pay Mantle gas plus Ethereum gas when claiming. Congestion on Ethereum affects final claim cost.</p>
+</section>
+
+<section id="eth-to-mantle-use-cases">
+  <h2>Why Use ETH to Mantle?</h2>
+  <p class="capsule">ETH to Mantle transfers make sense for users seeking lower gas fees, faster transaction confirmations, and access to Mantle ecosystem dApps such as decentralized exchanges and DeFi protocols. Layer 2 execution reduces cost while maintaining Ethereum settlement security.</p>
+  <p class="evidence">Layer 2 scaling solutions aim to reduce fees and increase throughput while anchoring security to Ethereum’s base layer.</p>
+  <p>Lower fees change behavior.</p>
+
+  <h3>DeFi on Mantle Network</h3>
+  <p>Trading, staking, and liquidity provision often cost significantly less on Mantle compared to Ethereum mainnet. Smaller portfolio moves become viable again.</p>
+
+  <h3>NFT and Gaming Activity</h3>
+  <p>High-frequency actions like minting or in-game transactions benefit from reduced gas costs on Mantle layer 2.</p>
+
+  <h3>Capital Efficiency After eth to mantle</h3>
+  <p>After completing an eth to mantle transfer, you can rebalance, farm, or swap without burning large amounts on gas — similar to moving from an expensive downtown store to a lower-rent warehouse.</p>
+</section>
+
+<section id="tax-and-records">
+  <h2>Tax and Record Considerations</h2>
+  <p class="capsule">ETH to Mantle transfers are typically considered token movements between wallets you control, but tax treatment depends on jurisdiction and how local authorities classify bridging and Layer 2 activity. Always maintain accurate transaction records for compliance.</p>
+  <p class="evidence">Tax authorities such as the U.S. Internal Revenue Service provide guidance on digital asset reporting at <a href="https://www.irs.gov/businesses/small-businesses-self-employed/digital-assets" rel="noopener noreferrer" target="_blank">https://www.irs.gov/businesses/small-businesses-self-employed/digital-assets</a>.</p>
+  <p>Regulation evolves quickly.</p>
+
+  <h3>Is eth to mantle a Taxable Event?</h3>
+  <p>In many regions, moving assets between self-controlled wallets is not a taxable disposal. However, swapping or selling after bridging may trigger capital gains.</p>
+
+  <h3>Track Transaction Hashes</h3>
+  <p>Store Ethereum and Mantle transaction IDs. Good records simplify reporting later.</p>
+
+  <h3>Consult a Professional</h3>
+  <p>Jurisdiction matters. Seek advice from a licensed tax advisor familiar with crypto assets.</p>
+</section>
+
+<section class="faq-section" id="faq">
+  <h2>Frequently Asked Questions</h2>
+
+  <details>
+    <summary>How long does eth to mantle take?</summary>
+    <p>Most eth to mantle deposits complete within a few minutes. Timing depends on Ethereum gas conditions and confirmation speed, but under normal congestion funds appear on Mantle shortly after mainnet confirmation.</p>
+  </details>
+
+  <details>
+    <summary>How much does eth to mantle cost?</summary>
+    <p>Costs mainly come from Ethereum gas fees. During low congestion you might pay a few dollars; during peak demand fees can rise significantly.</p>
+  </details>
+
+  <details>
+    <summary>What if my eth to mantle transaction is stuck?</summary>
+    <p>Check the Ethereum transaction hash first. If it’s pending, you may need to speed up or replace the transaction with higher gas; if confirmed, switch to Mantle network and verify your balance.</p>
+  </details>
+
+  <details>
+    <summary>Is eth to mantle safe for large amounts?</summary>
+    <p>Yes, when using the official Mantle bridge and verified URLs. For large transfers, test with a small amount first to confirm everything works as expected.</p>
+  </details>
+
+  <details>
+    <summary>Can I bridge tokens other than ETH?</summary>
+    <p>Yes, some bridges support additional ERC-20 tokens. Availability depends on the specific Ethereum to Mantle bridge interface you use.</p>
+  </details>
+
+  <details>
+    <summary>Do I need KYC for eth to mantle?</summary>
+    <p>No, non-custodial bridges typically do not require identity verification. You interact directly with smart contracts through your wallet.</p>
+  </details>
+
+  <details>
+    <summary>Can I reverse an eth to mantle transfer?</summary>
+    <p>No, blockchain transactions are irreversible once confirmed. You must initiate a new withdrawal from Mantle back to Ethereum if needed.</p>
+  </details>
+
+  <details>
+    <summary>Where can I verify Mantle network status?</summary>
+    <p>Check official Mantle documentation and its block explorer for current network status, gas metrics, and bridge updates before initiating large transfers.</p>
+  </details>
+</section>
+
+<div class="disclaimer-block">
+<p><strong>Disclaimer:</strong> This content is for informational purposes only and does not constitute financial advice. Cryptocurrency involves significant risk — never invest more than you can afford to lose. Consult a licensed financial advisor before making investment decisions.</p>
+</div>
+
+<section class="cta-section" id="cta">
+  <h2>Bridge ETH to Mantle Now</h2>
+  <p>Lower your gas costs and access Mantle ecosystem dApps in minutes. Follow the steps above and complete your eth to mantle transfer with confidence.</p>
+  <a href="https://sushi.com/swap" class="cta-button" rel="noopener noreferrer" target="_blank">Start Bridging Today &rarr;</a>
+</section>
+  </div>
+<p class="disclosure">This page may contain affiliate links. We may earn a commission at no extra cost to you.</p>
+</main>
+
+<!--CTA_START-->
+<div class="floating-cta" id="floating-cta">
+  <a href="/sushiswap/" class="cta-button">Bridge ETH Now &rarr;</a>
+</div>
+<!--CTA_END-->
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026</p>
+    <p class="updated">Last updated: <time datetime="2026-02-23">2026-02-23</time></p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">&uarr;</button>
+
+<script>
+(function() {
+  'use strict';
+  var bar = document.getElementById('progress-bar');
+  var btt = document.getElementById('back-to-top');
+  var nav = document.getElementById('pill-nav');
+  var hero = document.getElementById('hero');
+  var floatCta = document.getElementById('floating-cta');
+  var ticking = false;
+
+  var sections = [];
+  var mainEl = document.querySelector('.content-area');
+  if (nav && mainEl) {
+    var h2s = mainEl.querySelectorAll('h2[id]');
+    h2s.forEach(function(h2) {
+      var words = h2.textContent.trim().split(/\s+/);
+      var label = words.slice(0, 3).join(' ');
+      if (words.length > 3) label += '\u2026';
+      var a = document.createElement('a');
+      a.href = '#' + h2.id;
+      a.textContent = label;
+      nav.appendChild(a);
+      sections.push({ el: h2.closest('section') || h2, link: a });
+    });
+    var ctaLink = document.querySelector('.hero-cta');
+    if (ctaLink) {
+      var ctaA = document.createElement('a');
+      ctaA.href = ctaLink.href;
+      ctaA.className = 'pill-cta';
+      ctaA.textContent = ctaLink.textContent.trim().replace(/\s*\u2192\s*$/, '');
+      nav.appendChild(ctaA);
+    }
+  }
+
+  var allSections = document.querySelectorAll('.content-area section, .content-area .toc');
+  allSections.forEach(function(s) { s.classList.add('fade-in'); });
+
+  function onScroll() {
+    var st = window.scrollY;
+    var dh = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
+    btt.classList.toggle('visible', st > 500);
+    if (nav && hero) nav.classList.toggle('visible', st > hero.offsetTop + hero.offsetHeight - 100);
+    if (floatCta) floatCta.classList.toggle('visible', st > hero.offsetHeight && st < dh - 200);
+    var current = '';
+    for (var i = sections.length - 1; i >= 0; i--) {
+      if (st >= sections[i].el.offsetTop - 200) { current = sections[i].el.id || ''; break; }
+    }
+    sections.forEach(function(s) {
+      var id = s.el.id || (s.el.querySelector('h2[id]') || {}).id || '';
+      s.link.classList.toggle('active', id === current);
+    });
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!ticking) { requestAnimationFrame(function() { onScroll(); ticking = false; }); ticking = true; }
+  });
+  btt.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (a) { var t = document.querySelector(a.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
+  });
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(function(el) { obs.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
