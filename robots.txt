@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /sushiswap/
-Sitemap: https://eth-to-mantle.github.io/sitemap.xml
